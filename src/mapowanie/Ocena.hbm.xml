@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- Generated 2011-03-11 12:23:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.Ocena" table="OCENY">
+        <id name="id" type="int">
+            <column name="ID_OCENY"/>
+            <generator class="native"/>
+        </id>
+   
+        <property name="liczbaPoprOdp" type="java.lang.Integer">
+            <column name="LICZBAPOPRODP"/>
+        </property>
+    
+        <property name="ocena" type="java.lang.Float">
+            <column name="OCENA"/>
+        </property>
+    
+        <many-to-one cascade="save-update" class="model.Test" column="ID_TESTU"
+                     foreign-key="FK_OCENY_TEST" name="test" unique="false" />
+        
+        <many-to-one cascade="save-update" class="model.Student" column="ID_STUD"
+                     foreign-key="FK_OCENY_STUD" name="student" unique="false" />
+    
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- Generated 2011-03-11 12:23:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+  <class name="model.Przedmiot" table="PRZEDMIOTY">
+    <id name="id" type="int">
+      <column name="ID_PRZED"/>
+      <generator class="native"/>
+    </id>
+    <property name="nazwa" type="java.lang.String">
+      <column name="NAZWA"/>
+    </property>
+    <property name="kierunek" type="java.lang.String">
+      <column name="KIERUNEK"/>
+    </property>
+    <property name="semestr" type="java.lang.String">
+      <column name="SEMESTR"/>
+    </property>
+    
+    <set inverse="true" lazy="true" 
+        name="pracownicy" table="PRAC_PRZED">
+      <key foreign-key="FK_PRZED_PRAC">
+        <column name="ID_PRZED"/>
+      </key>
+      <many-to-many class="model.Pracownik" column="ID_PRAC"/>
+    </set>
+    
+    <set lazy="true" name="testy" inverse="true">
+      <key >
+        <column name="ID_PRZEDM"/>
+      </key>
+      <one-to-many class="model.Test"/>
+    </set>
+    
+  </class>
+</hibernate-mapping>

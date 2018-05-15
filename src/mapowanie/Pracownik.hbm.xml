@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- Generated 2011-03-11 12:23:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <joined-subclass extends="model.Osoba" lazy="false" name="model.Pracownik"
+                   table="PRACOWNICY" >
+        <key foreign-key="FK_PRAC_OS">
+            <column name="ID_PRAC"/>
+        </key>
+
+        <property name="stanowisko" type="java.lang.String">
+            <column name="STANOWISKO"/>
+        </property>
+    
+        <property name="tytul" type="java.lang.String">
+            <column name="TYTUL"/>
+        </property>
+    
+        <set cascade="save-update" lazy="true" inverse="false" name="przedmioty" 
+             table="PRAC_PRZED">
+            <key foreign-key="FK_PRAC_PRZED">
+                <column name="ID_PRAC"/>
+            </key>
+            <many-to-many class="model.Przedmiot" column="ID_PRZED"/>
+        </set>
+    
+    </joined-subclass>
+</hibernate-mapping>

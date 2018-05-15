@@ -1,0 +1,3 @@
+17 mar 2018 18:41:11 [WARN ] [org.hibernate.hql.internal.QuerySplitter:137] HHH000183: no persistent classes found for query class: from java.lang.Object
+17 mar 2018 18:41:11 [DEBUG] [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator:45] QueryTranslatorFactory : org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory@129b9a
+17 mar 2018 18:41:11 [INFO ] [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator:47] HHH000397: Using ASTQueryTranslatorFactory
